@@ -11,7 +11,7 @@
     <WebUI>http://[IP]:[PORT:8080]</WebUI>
     <TemplateURL>https://raw.githubusercontent.com/sebtech33/unRAID-Templates/main/sebtech33/crazy-max_rtorrent-rutorrent.xml</TemplateURL>
     <Icon>https://raw.githubusercontent.com/crazy-max/docker-rtorrent-rutorrent/master/.github/docker-rtorrent-rutorrent.jpg</Icon>
-    <ExtraParams>-t 30 --restart unless-stopped</ExtraParams>
+    <ExtraParams>--restart unless-stopped</ExtraParams>
     <PostArgs/>
     <DonateText>Want to contribute? Support crazy-max for his Awesome container!</DonateText>
     <DonateLink>https://github.com/crazy-max/docker-rtorrent-rutorrent#contributing</DonateLink>
@@ -21,7 +21,7 @@
     <!-- [ Environment variables ] -->
     <!-- General -->
     <Config Name="Timezone" Target="TZ" Default="UTC" Mode="" Description="The container need this to set the correct time for logs and scheduled tasks. You can find your timezone here: https://timezonedb.com/time-zones" Type="Variable" Display="always" Required="false" Mask="false"/>
-    <Config Name="PUID (Process User ID)" Target="PUID" Default="1000" Mode="" Description="This is the identity of the user and it sets the permissions acordingly for files and folders." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID (Process User ID)" Target="PUID" Default="1000" Mode="" Description="This is the identity of the user and it sets the permissions acordingly for files and folders." Type="Variable" Display="advanced" Required="false" Mask="false"/>
     <Config Name="PGID (Process Group ID)" Target="PGID" Default="1000" Mode="" Description="This is the identity of the group the user is in and then sets permissions acordingly." Type="Variable" Display="advanced" Required="false" Mask="false"/>
     <Config Name="WAN IP" Target="WAN_IP" Default="" Mode="" Description="Public IP address reported to the tracker (auto if empty)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
     <Config Name="WAN IP CMD" Target="WAN_IP_CMD" Default="" Mode="" Description="Command to resolve the Public IP address" Type="Variable" Display="advanced" Required="false" Mask="false"/>
