@@ -1,1 +1,73 @@
-
+<?xml version="1.0"?>
+    <Container version="2">
+    <Name>rtorrent-rutorrent</Name>
+    <Repository>crazymax/rtorrent-rutorrent</Repository>
+    <Registry>https://hub.docker.com/r/crazymax/rtorrent-rutorrent</Registry>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/sebtech33/unRAID-Templates/issues</Support>
+    <Project>https://github.com/crazy-max/docker-rtorrent-rutorrent</Project>
+    <Overview>rTorrent with ruTorrent Docker image.</Overview>
+    <WebUI>http://[IP]:[PORT:8080]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/sebtech33/unRAID-Templates/main/sebtech33/crazy-max_rtorrent-rutorrent.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/crazy-max/docker-rtorrent-rutorrent/master/.github/docker-rtorrent-rutorrent.jpg</Icon>
+    <ExtraParams>-t 30 --restart unless-stopped</ExtraParams>
+    <PostArgs/>
+    <DonateText>Want to contribute? Support crazy-max for his Awesome container!</DonateText>
+    <DonateLink>https://github.com/crazy-max/docker-rtorrent-rutorrent#contributing</DonateLink>
+    <Beta>False</Beta>
+    <Category>Downloaders:</Category>
+    <Date>2023-01-14</Date>
+    <!-- [ Environment variables ] -->
+    <!-- General -->
+    <Config Name="Timezone" Target="TZ" Default="UTC" Mode="" Description="The container need this to set the correct time for logs and scheduled tasks. You can find your timezone here: https://timezonedb.com/time-zones" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID (Process User ID)" Target="PUID" Default="1000" Mode="" Description="This is the identity of the user and it sets the permissions acordingly for files and folders." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PGID (Process Group ID)" Target="PGID" Default="1000" Mode="" Description="This is the identity of the group the user is in and then sets permissions acordingly." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="WAN IP" Target="WAN_IP" Default="" Mode="" Description="Public IP address reported to the tracker (auto if empty)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="WAN IP CMD" Target="WAN_IP_CMD" Default="" Mode="" Description="Command to resolve the Public IP address" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Memory Limit" Target="MEMORY_LIMIT" Default="256M" Mode="" Description="PHP memory limit (default 256M)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Upload Max Size" Target="UPLOAD_MAX_SIZE" Default="16M" Mode="" Description="Upload max size (default 16M)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Clear Environment" Target="CLEAR_ENV" Default="yes" Mode="" Description="Clear environment in FPM workers (default yes)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="PHP OpCache mem size" Target="OPCACHE_MEM_SIZE" Default="128" Mode="" Description="PHP OpCache memory consumption (default 128)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Max file uploads" Target="MAX_FILE_UPLOADS" Default="50" Mode="" Description="The maximum number of files allowed to be uploaded simultaneously (default 50)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Authentication Delay" Target="AUTH_DELAY" Default="0s" Mode="" Description="The time in seconds to wait for Basic Auth (default 0s)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Trusted IP's from " Target="REAL_IP_FROM" Default="0.0.0.0/32" Mode="" Description="Trusted addresses that are known to send correct replacement addresses (default 0.0.0.0/32)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Real IP Header" Target="REAL_IP_HEADER" Default="X-Forwarded-For" Mode="" Description="Request header field whose value will be used to replace the client address (default X-Forwarded-For)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="LOG IP VAR" Target="LOG_IP_VAR" Default="remote_addr" Mode="" Description="Use another variable to retrieve the remote IP address for access log_format on Nginx. (default remote_addr)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Log Access" Target="LOG_ACCESS" Default="true" Mode="" Description="Output access log (default true)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="XMLRPC Auth Message" Target="XMLRPC_AUTHBASIC_STRING" Default="rTorrent XMLRPC restricted access" Mode="" Description="XMLRPC_AUTHBASIC_STRING: Message displayed during validation of XMLRPC Basic Auth (default rTorrent XMLRPC restricted access)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="XMLRPC Port" Target="XMLRPC_PORT" Default="8000" Mode="" Description="XMLRPC port through nginx over SCGI socket (default 8000)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="XMLRPC Size Limit" Target="XMLRPC_SIZE_LIMIT" Default="1M" Mode="" Description="Maximum body size of XMLRPC calls (default 1M)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent Auth Message" Target="RUTORRENT_AUTHBASIC_STRING" Default="ruTorrent restricted access" Mode="" Description="Message displayed during validation of ruTorrent Basic Auth (default ruTorrent restricted access)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="WebDav Auth Message" Target="WEBDAV_AUTHBASIC_STRING" Default="WebDAV restricted access" Mode="" Description="Message displayed during validation of WebDAV Basic Auth (default WebDAV restricted access)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="WebDav Port" Target="WEBDAV_PORT" Default="9000" Mode="" Description="WebDAV port on completed downloads (default 9000)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <!-- rTorrent -->
+    <Config Name="rTorrent Log Level" Target="RT_LOG_LEVEL" Default="info" Mode="" Description="rTorrent log level (default info)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="rTorrent Log" Target="RT_LOG_EXECUTE" Default="false|true" Mode="" Description="Log executed commands to /data/rtorrent/log/execute.log (default false)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="XMLRPC Log" Target="RT_LOG_XMLRPC" Default="false|true" Mode="" Description="Log XMLRPC queries to /data/rtorrent/log/xmlrpc.log (default false)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="DHT UDP Port" Target="RT_DHT_PORT" Default="6881" Mode="" Description="DHT UDP port (dht.port.set, default 6881)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="rTorrent Incomming Port" Target="RT_INC_PORT" Default="50000" Mode="" Description="Incoming connections (network.port_range.set, default 50000)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <!-- ruTorrent -->
+    <Config Name="Remove ruTorrent Plugins" Target="RU_REMOVE_CORE_PLUGINS" Default="erasedata,httprpc" Mode="" Description="Remove ruTorrent core plugins ; comma separated (default erasedata,httprpc)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="ruTorrent HTTP user agent" Target="RU_HTTP_USER_AGENT" Default="Mozilla/5.0 (Windows NT 6.0; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0" Mode="" Description="ruTorrent HTTP user agent (default Mozilla/5.0 (Windows NT 6.0; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent HTTP Timeout" Target="RU_HTTP_TIME_OUT" Default="30" Mode="" Description="ruTorrent HTTP timeout in seconds (default 30)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent use HTTP GZip" Target="RU_HTTP_USE_GZIP" Default="true|false" Mode="" Description="Use HTTP Gzip compression (default true)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent RPC timeout" Target="RU_RPC_TIME_OUT" Default="5" Mode="" Description="ruTorrent RPC timeout in seconds (default 5)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent RPC calls" Target="RU_LOG_RPC_CALLS" Default="false|true" Mode="" Description="Log ruTorrent RPC calls (default false)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent RPC faults" Target="RU_LOG_RPC_FAULTS" Default="true|false" Mode="" Description="Log ruTorrent RPC faults (default true)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="PHP Gzip compression" Target="RU_PHP_USE_GZIP" Default="false|true" Mode="" Description="Use PHP Gzip compression (default false)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Gzip compression level" Target="RU_PHP_GZIP_LEVEL" Default="2" Mode="" Description="PHP Gzip compression level (default 2)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Rand for scheduler" Target="RU_SCHEDULE_RAND" Default="10" Mode="" Description="Rand for schedulers start, +0..X seconds (default 10)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent Log file" Target="RU_LOG_FILE" Default="/data/rutorrent/rutorrent.log" Mode="" Description="ruTorrent log file path for errors messages (inside the container) (default /data/rutorrent/rutorrent.log)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent diagnostics" Target="RU_DO_DIAGNOSTIC" Default="true|false" Mode="" Description="ruTorrent diagnostics like permission checking (default true)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Save added torrents" Target="RU_SAVE_UPLOADED_TORRENTS" Default="true|false" Mode="" Description="Save torrents files added via ruTorrent in /data/rutorrent/share/torrents (inside the container) (default true)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Override added torrents" Target="RU_OVERWRITE_UPLOADED_TORRENTS" Default="false|true" Mode="" Description="Existing .torrent files will be overwritten (default false)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Disable user settings" Target="RU_FORBID_USER_SETTINGS" Default="false|true" Mode="" Description="If true, allows for single user style configuration, even with webauth (default false)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="ruTorrent Locale" Target="RU_LOCALE" Default="UTF8" Mode="" Description="Set default locale for ruTorrent (default UTF8)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <!-- [ Volumes ] -->
+    <Config Name="Appdata" Target="/data" Default="" Mode="rw" Description="rTorrent / ruTorrent config, session files, log, etc." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Downloads" Target="/downloads" Default="" Mode="rw" Description="Downloaded files" Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Passwd" Target="/passwd" Default="" Mode="rw" Description="Contains htpasswd files for basic auth" Type="Path" Display="always" Required="false" Mask="false"/>
+    <!-- [ Ports ] -->
+    <Config Name="ruTorrent Port" Target="8080" Default="8080" Mode="" Description="ruTorrent HTTP port (default 8080)" Type="Port" Display="always" Required="false" Mask="false"/>
+</Container>
